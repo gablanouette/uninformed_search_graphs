@@ -23,3 +23,18 @@ import networkx as nx
 import warnings
 warnings.filterwarnings('ignore')
 
+# create a graph from a dictionary of lists
+graph_string_labels = {
+  'A': ['B', 'D', 'F'],
+  'B': ['A', 'C'],
+  'C': ['B', 'E'],
+  'D': ['A', 'C', 'E', 'F'],
+  'E': ['C', 'D', 'F'],
+  'F': ['A', 'D', 'E']
+}
+
+graph = nx.from_dict_of_lists(graph_string_labels)
+print(type(graph))
+
+nx.draw_networkx(graph, with_labels=True, node_color='cyan', node_size=500)
+
